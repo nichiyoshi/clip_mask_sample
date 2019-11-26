@@ -1,6 +1,5 @@
 package com.example.nichiyoshi.maskclipsample
 
-import android.graphics.Rect
 import android.view.View
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
@@ -8,11 +7,11 @@ import androidx.lifecycle.ViewModel
 
 class MainViewModel: ViewModel() {
 
-    private val _clipRectOfDescendant = MutableLiveData<Pair<View, Rect>>()
-    val clipRectOfDescendant: LiveData<Pair<View, Rect>> = _clipRectOfDescendant
+    private val _clipRectOfDescendant = MutableLiveData<View>()
+    val clipRectOfDescendant: LiveData<View> = _clipRectOfDescendant
 
-    fun requestClipWithRect(pair: Pair<View, Rect>) {
-        _clipRectOfDescendant.postValue(pair)
+    fun requestClipWithRect(view: View) {
+        _clipRectOfDescendant.postValue(view)
     }
 
     private val _rectToClip = MutableLiveData<Unit>()

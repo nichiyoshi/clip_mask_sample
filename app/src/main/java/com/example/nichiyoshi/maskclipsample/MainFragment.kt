@@ -25,9 +25,7 @@ class MainFragment: Fragment(R.layout.fragment_main) {
         image2.load("https://www.pakutaso.com/shared/img/thumb/cat9302331_TP_V.jpg")
 
         viewModel.requestRectToClip.observe(viewLifecycleOwner) {
-            val offsetViewBounds = Rect()
-            image1.getDrawingRect(offsetViewBounds)
-            viewModel.requestClipWithRect(Pair(image1, offsetViewBounds))
+            viewModel.requestClipWithRect(image1)
         }
     }
 

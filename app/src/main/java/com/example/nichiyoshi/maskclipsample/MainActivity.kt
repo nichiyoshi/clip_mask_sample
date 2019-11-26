@@ -10,6 +10,7 @@ import androidx.activity.viewModels
 import androidx.lifecycle.observe
 
 import kotlinx.android.synthetic.main.activity_main.*
+import kotlinx.android.synthetic.main.fragment_main.*
 
 class MainActivity : AppCompatActivity() {
 
@@ -23,10 +24,12 @@ class MainActivity : AppCompatActivity() {
             viewModel.requestRectToClip()
         }
 
-        viewModel.clipRectOfDescendant.observe(this) {
-            val rect = it.second
-            container.offsetDescendantRectToMyCoords(it.first, rect)
-            mask.clipWithRect(rect)
+        viewModel.clipRectOfDescendant.observe(this) {targetView ->
+            Rect().apply {
+                targetView.getDrawingRect(this)
+                container.offsetDescendantRectToMyCoords(targetView, this)
+                mask.clipWithRect(this)
+            }
         }
     }
 }
