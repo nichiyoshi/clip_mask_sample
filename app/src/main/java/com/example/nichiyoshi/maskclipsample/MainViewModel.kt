@@ -7,18 +7,18 @@ import androidx.lifecycle.ViewModel
 
 class MainViewModel: ViewModel() {
 
-    private val _clipRectOfDescendant = MutableLiveData<View>()
-    val clipRectOfDescendant: LiveData<View> = _clipRectOfDescendant
+    private val _viewToClip = MutableLiveData<View>()
+    val viewToClip: LiveData<View> = _viewToClip
 
-    fun requestClipWithRect(view: View) {
-        _clipRectOfDescendant.postValue(view)
+    fun setViewToCLip(view: View) {
+        _viewToClip.postValue(view)
     }
 
-    private val _rectToClip = MutableLiveData<Unit>()
-    val requestRectToClip: LiveData<Unit> = _rectToClip
+    private val _requestViewToClip = MutableLiveData<Unit>()
+    val requestViewToClip: LiveData<Unit> = _requestViewToClip
 
-    fun requestRectToClip() {
-        _rectToClip.postValue(Unit)
+    fun requestViewToClip() {
+        _requestViewToClip.postValue(Unit)
     }
 
 }

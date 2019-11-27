@@ -1,6 +1,5 @@
 package com.example.nichiyoshi.maskclipsample
 
-import android.graphics.Rect
 import android.os.Bundle
 import android.view.View
 import android.widget.ImageView
@@ -24,8 +23,8 @@ class MainFragment: Fragment(R.layout.fragment_main) {
         image1.load("https://www.pakutaso.com/shared/img/thumb/cat9302341_TP_V.jpg")
         image2.load("https://www.pakutaso.com/shared/img/thumb/cat9302331_TP_V.jpg")
 
-        viewModel.requestRectToClip.observe(viewLifecycleOwner) {
-            viewModel.requestClipWithRect(image1)
+        viewModel.requestViewToClip.observe(viewLifecycleOwner) {
+            viewModel.setViewToCLip(image1)
         }
     }
 
